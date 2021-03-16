@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'primeNG-demo';
+
+  constructor(
+    private router: Router
+  ) {}
+
+  public get isLoginPage(): boolean {
+    return this.router.url === '/login' ? true : false;
+  }
 }
