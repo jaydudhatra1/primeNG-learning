@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { APP_ROUTES, COOKIE_NAME } from '../utils/enums';
+import { Util } from '../utils/util';
 
 @Component({
   selector: 'app-login',
@@ -7,12 +10,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public username: string = "";
-  public password: string = "";
+  public username = '';
+  public password = '';
+  public isErrorDialog = false;
 
   constructor(
-    private router: Router
-  ) { }
+    private router: Router,
+    private cookieService: CookieService
+  ) {
+
+  }
 
   ngOnInit(): void {
   }
@@ -24,6 +31,22 @@ export class LoginComponent implements OnInit {
   }
 
   public login(): void {
-    this.router.navigateByUrl('/dashboard');
+    // TODO: Make Ajax request and validate user
+    if (
+      this.username === 'admin' &&
+      this.password === 'admin'
+    ) {
+      this.cookieService.set(COOKIE_NAME.SESSION_COOKIE, this.username);
+      this.redirectToDashboard();
+    } else {
+      this.isErrorDialog = true;
+    }
+  }
+
+  private redirectToDashboard(): void {
+    this.router.navigateByUrl(
+      Util.getPrefixedRoute(
+        APP_ROUTES.DASHBOARD,
+        APP_ROUTES.WRAPPER_MODULE_PATH));
   }
 }

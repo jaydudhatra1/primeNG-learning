@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { MenuItem } from 'primeng/api';
+import { APP_ROUTES, COOKIE_NAME } from '../utils/enums';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +12,8 @@ import { MenuItem } from 'primeng/api';
 export class HeaderComponent implements OnInit {
   public items: MenuItem[];
   constructor(
-    private router: Router
+    private router: Router,
+    private cookieService: CookieService
   ) { }
 
   ngOnInit(): void {
@@ -34,7 +37,8 @@ export class HeaderComponent implements OnInit {
   }
 
   public logout(): void {
-    this.router.navigateByUrl('/login');
+    this.cookieService.delete(COOKIE_NAME.SESSION_COOKIE);
+    this.router.navigateByUrl(APP_ROUTES.LOGIN);
   }
 
 }
