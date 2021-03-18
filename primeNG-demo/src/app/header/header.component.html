@@ -1,6 +1,7 @@
-<p-menubar [model]="items">
+<p-menubar [model]="isLoginPage ? menuItemsLoginPage: menuItems">
     <div>
         <button
+            *ngIf="!isLoginPage"
             type="button"
             pButton
             class="p-button-text"

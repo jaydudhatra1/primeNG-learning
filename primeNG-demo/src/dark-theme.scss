@@ -1,0 +1,14 @@
+@import "./dark-colors.scss";
+
+body.dark {
+    background-image: none;
+    background-color: $body-background;
+
+    h1,h2,h3,h4,h5,h6 {
+        color: $font-color-primary;
+    }
+
+    .container {
+        background-color: $container-background;
+    }
+}

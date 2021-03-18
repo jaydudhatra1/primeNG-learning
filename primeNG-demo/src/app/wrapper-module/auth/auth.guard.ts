@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    const isCookiePresent = this.cookieService.get(COOKIE_NAME.SESSION_COOKIE);
+    const isCookiePresent = this.cookieService.check(COOKIE_NAME.SESSION_COOKIE);
 
     if (!isCookiePresent && state.url !== Util.getPrefixedRoute(APP_ROUTES.LOGIN)) {
       this.router.navigateByUrl(APP_ROUTES.LOGIN);

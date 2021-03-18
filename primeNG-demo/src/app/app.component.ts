@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { APP_ROUTES } from './utils/enums';
-import { Util } from './utils/util';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +12,4 @@ export class AppComponent {
   constructor(
     private router: Router
   ) {}
-
-  public get isLoginPage(): boolean {
-    return this.router.url === Util.getPrefixedRoute(APP_ROUTES.LOGIN) ? true : false;
-  }
 }

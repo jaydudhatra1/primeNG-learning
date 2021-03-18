@@ -5,5 +5,6 @@ export enum COOKIE_NAME {
 export enum APP_ROUTES {
     WRAPPER_MODULE_PATH = 'app',
     LOGIN = 'login',
-    DASHBOARD = 'dashboard'
+    DASHBOARD = 'dashboard',
+    ANALYTICTS = 'analytics'
 }

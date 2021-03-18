@@ -1,3 +1,6 @@
+@import "./dark-theme.scss";
+@import "./light-theme.scss";
+
 html {
     min-height: 100%;
 }
@@ -5,18 +8,9 @@ body {
     font-family: Open Sans,Helvetica Neue,sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #edf0f5;
+    background: $body-background;
     min-height: 100%;
-    background-color: #efefef;
 
-    &.dark {
-        background-image: none;
-        background-color: #2e2e2e;
-
-        h1,h2,h3,h4,h5,h6 {
-            color: #efefef;
-        }
-    }
     input {
         min-width: 250px;
     }
@@ -25,8 +19,6 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 100%;
-        min-width: 100%;
     }
 
     h1, h2, h3, h4, h5 {
@@ -34,20 +26,21 @@ body {
     }
 
     .center-item-container {
-        height: 100vh;
         position: relative;
         top: -50px;
+        margin-top: 20vh;
     }
 
     .p-float-label {
         margin-top: 24px;
     }
     .password {
-        &:focus-within {
+        &:focus-within, &.p-filled {
 
             label {
-                top: -.75rem;
                 font-size: 12px;
+                top: -0.75rem !important;
+                background-color: $container-background;
             }
         }
     }

@@ -1,6 +1,6 @@
 <div class="center-item-container">
     <form>
-        <div class="p-d-flex p-flex-column wrapper">
+        <div class="p-d-flex p-flex-column wrapper container">
             <div class="p-grid p-justify-center">
                 <h2 class="p-float-label">
                     Sign In
@@ -18,7 +18,7 @@
                 </span>
             </div>
             <div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
-                <span class="p-float-label password">
+                <span class="p-float-label password" [class.p-filled]="password">
                     <p-password
                         id="password"
                         [(ngModel)]="password"

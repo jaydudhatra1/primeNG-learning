@@ -1,3 +1,23 @@
 <div class="page-wrapper">
-
+    <div class="card">
+        <h3>Phones</h3>
+        <p-table [value]="phones" sortField="discount" [sortOrder]="-1">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon></th>
+                    <th pSortableColumn="price">Price<p-sortIcon field="category"></p-sortIcon></th>
+                    <th pSortableColumn="discount">Discount<p-sortIcon field="quantity"></p-sortIcon></th>
+                    <th pSortableColumn="features">Features<p-sortIcon field="features"></p-sortIcon></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.discount}}%</td>
+                    <td>{{product.features}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
 </div>

@@ -15,7 +15,7 @@ import { DialogModule } from 'primeng/dialog';
   declarations: [
     AppComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
